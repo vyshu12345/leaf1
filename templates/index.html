@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaf Image Classification</title>
+    <style>
+        body {
+            background-color: rgb(36, 170, 32);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            width: 100px;
+            padding: 5px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        h1, h2 {
+            text-align: center;
+            margin: 20px 0;
+        }
+        h3 {
+            display: inline-block;
+            margin: 10px 0;
+            text-align: right;
+            width: 150px;
+        }
+        form div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h4>Leaf Image Classification Model</h4>
+        <h5>Based on Texture Feature Extraction Values</h5>
+        <form action='/vyshnavi' method="POST">
+            <div>
+                <h3>Contrast:</h3> 
+                <input type='text' name='Contrast'><br>
+            </div>
+            <div>
+                <h3>Homogeneity:</h3> 
+                <input type='text' name='Homogeneity'><br>
+            </div>
+            <div>
+                <h3>Correlation:</h3> 
+                <input type='text' name='Correlation'><br>
+            </div>
+            <div>
+                <h3>Entropy:</h3> 
+                <input type='text' name='Entropy'><br>
+            </div>
+            <input type='submit' value='Predict'>
+        </form>
+        <div class="result">
+            {% if result %}
+                The classified leaf is {{ result }}.
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
